@@ -1,0 +1,111 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<BorderPane fx:id="root" minHeight="700" minWidth="1200" xmlns="http://javafx.com/javafx/8.0.112"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu fx:id="menu" text="File">
+                    <items>
+                        <MenuItem onAction="#onOpenDatabase" text="Open Database"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.2" orientation="HORIZONTAL">
+            <items>
+                <VBox id="VBox" spacing="5.0" maxHeight="Infinity" maxWidth="Infinity">
+                    <children>
+                        <HBox id="HBox" alignment="CENTER" spacing="5.0">
+                            <children>
+                                <Label text="Search:"/>
+                                <TextField fx:id="searchTextField" prefWidth="-1.0" HBox.hgrow="ALWAYS"/>
+                                <!--                                        <Button onAction="#updateImage" text="Update"></Button>-->
+                            </children>
+                        </HBox>
+                        <ListView fx:id="cardListView" VBox.vgrow="ALWAYS">
+
+                        </ListView>
+                    </children>
+                </VBox>
+                <Pane fx:id="pane" disable="true">
+                    <VBox id="VBox2" spacing="5.0" maxHeight="Infinity" maxWidth="Infinity" VBox.vgrow="ALWAYS">
+                        <padding>
+                            <Insets top="25" left="25"/>
+                        </padding>
+                        <children>
+                            <HBox alignment="CENTER" spacing="5.0">
+                                <children>
+                                    <Label text="Attribute:"/>
+                                    <ComboBox fx:id="cardAttributesComboBox">
+
+                                    </ComboBox>
+                                </children>
+                            </HBox>
+                            <Separator></Separator>
+                            <HBox alignment="CENTER" spacing="5.0">
+                                <children>
+                                    <Label text="Name:"/>
+                                    <TextField fx:id="cardNameTextField" prefWidth="-1.0" HBox.hgrow="ALWAYS"/>
+                                </children>
+                            </HBox>
+                            <Separator></Separator>
+                            <HBox alignment="CENTER" spacing="5.0">
+                                <children>
+                                    <Label text="ATK / DEF:"/>
+                                    <TextField fx:id="cardATKTextField" prefWidth="-1.0" HBox.hgrow="ALWAYS"/>
+                                    <Label text="/"/>
+                                    <TextField fx:id="cardDEFTextField" prefWidth="-1.0" HBox.hgrow="ALWAYS"/>
+
+                                </children>
+                            </HBox>
+                            <Separator></Separator>
+                            <HBox alignment="CENTER" spacing="5.0">
+                                <children>
+                                    <Label text="Description:"/>
+                                    <TextArea fx:id="cardDescriptionTextArea" prefWidth="-1.0" HBox.hgrow="ALWAYS" wrapText="true"/>
+                                </children>
+                            </HBox>
+                            <Separator></Separator>
+                            <HBox alignment="CENTER" spacing="5.0">
+                                <children>
+                                    <Label text="Passcode:"/>
+                                    <TextField fx:id="cardPasscodeTextField" prefWidth="-1.0" HBox.hgrow="ALWAYS"/>
+                                </children>
+                            </HBox>
+                        </children>
+                    </VBox>
+                </Pane>
+                <Pane fx:id="pane2">
+                    <VBox id="VBox20" spacing="5.0" maxHeight="Infinity" maxWidth="Infinity">
+                        <HBox id="HBox20" alignment="CENTER" spacing="5.0">
+                            <children>
+                                <ImageView fx:id="selectedCardArtworkImageView">
+                                    <image>
+                                        <Image preserveRatio="true" smooth="true"
+                                               url="@/sample/resources/images/DefaultCardArtwork.jpg"/>
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <TilePane fx:id="cardArtworksTilePane" alignment="CENTER" prefColumns="4" hgap="3" vgap="3">
+
+                        </TilePane>
+                    </VBox>
+                </Pane>
+            </items>
+        </SplitPane>
+    </center>
+    <right>
+
+    </right>
+    <bottom>
+        <Label text="Version 0.1"/>
+    </bottom>
+</BorderPane>
